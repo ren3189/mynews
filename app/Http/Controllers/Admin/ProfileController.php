@@ -24,6 +24,12 @@ class ProfileController extends Controller
 
     public function update()
     {
+        unset($form['_token']);
+        unset($form['image']);
+
+        $news->fill($form);
+        $news->save();
+
         return redirect('admin/profile/edit');
     }
 }
